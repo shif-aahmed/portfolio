@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Urbanist", sans-serif;;
+    font-family: "Urbanist", sans-serif;
 }
 html,body{
     width: 100%;
@@ -13,20 +13,19 @@ html,body{
     overflow-x: hidden;
 }
 
-
-
 .container{
     position: relative;
 }
- .row{
+.row{
     position: relative;
- }
+}
 .rock1{
     position: absolute;
     width: 600px;
     height: 600px;
     top: -250px;
     left: 50%;
+    transform: translateX(-50%);
     opacity: 0.5;
 }
 .flower1{
@@ -52,6 +51,7 @@ html,body{
     top: 250px;
     left: -10px;
 }
+
 .navbar{
     position: sticky;
     top:10px;
@@ -106,19 +106,9 @@ html,body{
     border: 1px solid white;
 }
 
-
 .section1{
    left: 17%;
    padding-right: 200px;
-}
-@media screen and (max-width:1200px){
-    .section1{
-        margin-top: 10%;
-        left: 10%;
-    }
-    .row2{
-        left: 5%;
-    }
 }
 .demo:hover{
     color: grey;
@@ -128,6 +118,8 @@ html,body{
     width: 730px;
     height: 450px;
     border-radius: 5%;
+    max-width: 100%;
+    height: auto;
 }
 .row2{
     left :17%;
@@ -153,7 +145,6 @@ html,body{
     to{
         left: 101%;
     }
-    
 }
 .text{
     display: flex;
@@ -185,8 +176,6 @@ html,body{
 .div1{
     margin-top: 100px;
 }
-
-
 .img1{
     position: absolute; 
     left: -150px;
@@ -201,84 +190,193 @@ html,body{
     width: 600px;
     opacity: 0.4;
 }
-
-/* width */
-::-webkit-scrollbar {
-    width: 7px;
+.section1{
+margin-left: 40px !important;
 }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #000000; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #262626; 
-  }
-  /* Floating / gentle swaying effect */
+/* Floating / gentle swaying effect */
 .rock1, .rock2, .flower1, .flower2, .img1, .img2 {
     transition: transform 0.5s ease, opacity 0.5s ease;
     will-change: transform;
 }
 
-.rock1 {
-    animation: floatRock1 8s ease-in-out infinite alternate;
-}
+.rock1 { animation: floatRock1 8s ease-in-out infinite alternate; }
+.rock2 { animation: floatRock2 10s ease-in-out infinite alternate; }
+.flower1 { animation: floatFlower1 6s ease-in-out infinite alternate; }
+.flower2 { animation: floatFlower2 7s ease-in-out infinite alternate; }
+.img1 { animation: floatImg1 12s ease-in-out infinite alternate; }
+.img2 { animation: floatImg2 14s ease-in-out infinite alternate; }
 
-.rock2 {
-    animation: floatRock2 10s ease-in-out infinite alternate;
-}
+@keyframes floatRock1 { 0% { transform: translate(0px,0px) rotate(0deg); } 50% { transform: translate(-10px,10px) rotate(2deg);} 100% { transform: translate(0px,0px) rotate(0deg);} }
+@keyframes floatRock2 { 0% { transform: translate(0px,0px) rotate(0deg); } 50% { transform: translate(10px,-10px) rotate(-2deg);} 100% { transform: translate(0px,0px) rotate(0deg);} }
+@keyframes floatFlower1 { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(1deg);} 100% { transform: translateY(0px) rotate(0deg);} }
+@keyframes floatFlower2 { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(6px) rotate(-1deg);} 100% { transform: translateY(0px) rotate(0deg);} }
+@keyframes floatImg1 { 0% { transform: translate(0px,0px) scale(1); } 50% { transform: translate(-15px,10px) scale(1.05);} 100% { transform: translate(0px,0px) scale(1);} }
+@keyframes floatImg2 { 0% { transform: translate(0px,0px) scale(1); } 50% { transform: translate(15px,-10px) scale(1.05);} 100% { transform: translate(0px,0px) scale(1);} }
 
-.flower1 {
-    animation: floatFlower1 6s ease-in-out infinite alternate;
-}
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #262626; }
 
-.flower2 {
-    animation: floatFlower2 7s ease-in-out infinite alternate;
-}
+/* Media Queries for Smaller Screens */
 
-.img1 {
-    animation: floatImg1 12s ease-in-out infinite alternate;
+@media screen and (min-width: 2000px){
+    .section1 .row{margin-left: 10rem !important;}
+        .rock1{
+    position: absolute;
+    width: 1000px !important;
+    height: 1000px !important;
+    top: -250px;
+    left: 100% !important;
+    transform: translateX(-50%);
+    opacity: 0.5;
 }
-
-.img2 {
-    animation: floatImg2 14s ease-in-out infinite alternate;
+.flower1{
+    position: absolute;
+    width: 650px !important;
+    height: auto;
+    top: 150px;
+    right: -550px !important;
+    z-index: 0;
 }
-
-/* Keyframes */
-@keyframes floatRock1 {
-    0% { transform: translate(0px, 0px) rotate(0deg); }
-    50% { transform: translate(-10px, 10px) rotate(2deg); }
-    100% { transform: translate(0px, 0px) rotate(0deg); }
+.rock2{
+    position: absolute;
+    width: 720px !important;
+    height: auto;
+    top: 250px;
+    left: -700px !important;
+    opacity: 0.5;
 }
-
-@keyframes floatRock2 {
-    0% { transform: translate(0px, 0px) rotate(0deg); }
-    50% { transform: translate(10px, -10px) rotate(-2deg); }
-    100% { transform: translate(0px, 0px) rotate(0deg); }
+.flower2{
+    position: absolute;
+    width: 350px !important;
+    height: auto;
+    top: 250px;
+    left: -20px !important;
 }
-
-@keyframes floatFlower1 {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(1deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
 }
-
-@keyframes floatFlower2 {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(6px) rotate(-1deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+@media screen and (min-width: 1750px){
+    .section1 .row{margin-left: 5rem !important;}
+    .rock1{
+    position: absolute;
+    width: 850px;
+    height: 850px;
+    top: -250px;
+    left: 60% !important;
+    transform: translateX(-50%);
+    opacity: 0.5;
 }
-
-@keyframes floatImg1 {
-    0% { transform: translate(0px, 0px) scale(1); }
-    50% { transform: translate(-15px, 10px) scale(1.05); }
-    100% { transform: translate(0px, 0px) scale(1); }
+.flower1{
+    position: absolute;
+    width: 450px;
+    height: auto;
+    top: 150px;
+    right: -250px;
+    z-index: 0;
 }
+.rock2{
+    position: absolute;
+    width: 520px;
+    height: auto;
+    top: 250px;
+    left: -300px !important;
+    opacity: 0.5;
+}
+.flower2{
+    position: absolute;
+    width: 250px;
+    height: auto;
+    top: 250px;
+    left: -20px !important;
+}
+}
+@media screen and (min-width: 1600px){.section1{margin-left: 70px !important;}}
+@media screen and (min-width: 1380px){
+    .rock1{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+.flower1{
+    position: absolute;
+    width: 450px;
+    height: auto;
+    top: 150px;
+    right: -250px;
+    z-index: 0;
+}
+.rock2{
+    position: absolute;
+    width: 520px;
+    height: auto;
+    top: 250px;
+    left: -250px;
+    opacity: 0.5;
+}
+.flower2{
+    position: absolute;
+    width: 250px;
+    height: auto;
+    top: 250px;
+    left: -10px;
+}
+}
+@media screen and (max-width: 1200px){
+    .section1 { left: 10%; padding-right: 50px; }
+    .row2 { left: 5%; margin-top: 30px; }
+    .section2 img, .row2 img { width: 90%; height: auto; }
+    .section1 h1 { font-size: 70px; }
+    .section3 h1 { font-size: 50px; }
 
-@keyframes floatImg2 {
-    0% { transform: translate(0px, 0px) scale(1); }
-    50% { transform: translate(15px, -10px) scale(1.05); }
-    100% { transform: translate(0px, 0px) scale(1); }
+
+}
+@media screen and (max-width: 992px){
+    .section2 img, .row2 img { width: 85%; }
+
+}
+@media screen and (max-width: 768px){
+    .section1 { left: 5%; }
+    .section1 h1 { font-size: 45px; }
+    .section3 h1 { font-size: 35px; }
+    .section1 p { font-size: 16px; }
+    .section2 img, .row2 img { width: 95%; }
+    .nav1 { flex-direction: column; gap: 10px; margin-left: 5px;}
+    .nav2 { flex-direction: column; gap: 10px; margin-right: 5px;}
+    .create { font-size: 3rem; }
+    .footer button { width: 90%; height: auto; padding: 15px; }
+}
+@media screen and (max-width:510px ) {
+    .flower1, .flower2,.rock1, .rock2 { transform: scale(0.2); }
+    .section1 h1{
+        font-size: 82px !important;
+    }
+}
+@media screen and (max-width: 480px){
+    .section1{margin-left: 0px !important;}
+    .section1 p, .section3 p { font-size: 14px; }
+    .section1 h1 { font-size: 30px; margin-top: 20px; }
+    .section3 h1 { font-size: 25px; }
+    .row2 img, .section2 img { width: 100%; height: auto; }
+    .nav1, .nav2 { padding: 5px; gap: 5px;}
+}
+@media screen and (max-width: 480px){
+    .section2 img,
+    .row2 img {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        left: 0;
+        margin: 0;
+        padding-right: 50px !important;
+        border-radius: 0 !important;
+
+    }
+    .section1 {
+        padding-right: 10px;
+        left: 5%;
+    }
 }
